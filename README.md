@@ -7,19 +7,18 @@ with ml algoritm based on emulated data (emulate scrapping system)
 
 it contains several services:
 
+ml_service:  
+        emulation of web scrapig - generate data  
+        ml use this data - create model and dump it  
+        notebook to develop model  
 
-ml_service:
-    emulation of web scrapig - generate data
-    ml use this data - create model and dump it
-    notebook to develop model
-
-redis:
-    just redis
+redis:  
+        just redis  
     
-flask_service:
-    flask app that used dumped model
-    and can evaluate new data
-    redis storage of previous results
+flask_service:  
+        flask app that used dumped model  
+        and can evaluate new data  
+        redis storage of previous results  
 
 
 <img src="app.png" width="700">
