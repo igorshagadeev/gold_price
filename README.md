@@ -16,7 +16,7 @@ redis:
         just redis  
     
 flask_service:  
-        flask app that used dumped model  
+        flask app use dumped model  
         and can evaluate new data  
         redis storage of previous results  
 
