@@ -45,9 +45,9 @@ docker-compose ps
 ```
 
 
-of course you can run containers separatly
-for example flask service
-or ml service with docker
+of course you can run containers separatly  
+for example flask service  
+or ml service with docker  
 
 ```bash
 docker build -t ml_service -f Dockerfile_ml_evaluate .
@@ -56,26 +56,16 @@ docker run --rm -it -p 8888:8888 ml_service
 
 ## Model prediction
 
-The model trained with GradientBoostingRegressor on emualated data
+The model trained with GradientBoostingRegressor on emualated data  
 It is simple but powerful model
 
-service contains ipython notebook to work at model
-start from repository
-or with docker command
+service contains ipython notebook to work at model  
+run from repository  
+or with docker command  
 
 ```bash
 jupyter notebook price_evaluate.ipynb
 ```
-
-
-
-
-
-
-
-
-
-
 
 
 
