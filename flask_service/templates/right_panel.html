@@ -1,0 +1,26 @@
+
+<h3>previous searches</h3>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th> probe </th>
+            <th> weight </th>
+            <th> jew_type </th>
+            <th> jew_weight </th>
+            <th> complexity </th>
+            <th> price </th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for line in search_array %}
+            <tr>
+                {% for item in line %}
+                    <td>
+                        {{ item }}
+                    <td>
+                {% endfor %}
+            </tr>
+        {% endfor %}
+    </tbody>
+<table>

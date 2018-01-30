@@ -1,0 +1,11 @@
+Flask
+Redis
+matplotlib
+flask_restful
+click
+sklearn
+numpy
+pandas
+scipy
+gunicorn
+gevent

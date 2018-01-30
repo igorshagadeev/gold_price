@@ -1,0 +1,46 @@
+version: '3'
+services:
+    ml_evaluate:
+        build: 
+            context: .
+            dockerfile: Dockerfile_ml_evaluate
+        command: ./run_evaluate.sh
+        ports:
+         - "8888:8888"
+        volumes:
+         - "/home/docker/data:/data"
+    
+    web_api:
+        build:
+            context: .
+            dockerfile: Dockerfile
+        command: python run_app.py --host 0.0.0.0
+        ports:
+         - "5000:5000"
+        volumes:
+         - ./flask_service:/flask_service
+         - "/home/docker/data:/data"
+        depends_on:
+         - ml_evaluate
+         - redis
+        
+    redis:
+        image: redis
+        ports:
+         - "6379:6379"
+        volumes:
+         - "/home/docker/data:/data"
+        deploy:
+            placement:
+                constraints: [node.role == manager]
+        command: redis-server --appendonly yes
+        
+    visualizer:
+        image: dockersamples/visualizer:stable
+        ports:
+         - "8080:8080"
+        volumes:
+         - "/var/run/docker.sock:/var/run/docker.sock"
+        deploy:
+            placement:
+                constraints: [node.role == manager]

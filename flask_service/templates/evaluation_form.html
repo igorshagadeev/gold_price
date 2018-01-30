@@ -1,0 +1,46 @@
+<form method="post" class="remove-empty-values" enctype="multipart/form-data"
+action="/">
+
+  <h3>jewelry properties</h3>
+
+  <!-- we add this hidden input to recognize that the post request is coming from the html input form -->
+  <input type="hidden" name="return_html" value="true" />
+
+  <div class="form-group">
+    <label>Probe [500, 585, 600, 700]</label>
+    <input type="number" step="any" name="probe" class="form-control" placeholder="Probe" value="{{ probe }}" required/>
+  </div>
+
+  <div class="form-group">
+    <label>Weight (1-10)</label>
+    <input type="number" step="any" name="weight" class="form-control" placeholder="weight" value="{{ weight }}" required/>
+  </div>
+
+  <div class="form-group">
+    <label>Jew_type (1-10)</label>
+    <input type="number" step="any" name="jew_type" class="form-control" placeholder="jew_type length" value="{{ jew_type }}" required/>
+  </div>
+
+  <div class="form-group">
+    <label>Jew_weight (1-10)</label>
+    <input type="number" step="any" name="jew_weight" class="form-control" placeholder="jew_weight" value="{{ jew_weight }}" required/>
+  </div>
+
+  <div class="form-group">
+    <label>Complexity (1-5)</label>
+    <input type="number" step="1" name="complexity" class="form-control" placeholder="complexity" value="{{ complexity }}" required/>
+  </div>
+  
+  <br></br>
+  <button type="submit" class="btn btn-primary">Evaluate</button>
+  <br></br>
+</form>
+
+<script type="text/javascript">
+  $(document).ready(function() {
+  $('.remove-empty-values').submit(function() {
+    $(this).find(':input').filter(function() { return !this.value; }).attr('disabled', 'disabled');
+    return true; // make sure that the form is still submitted
+  });
+});
+</script>
